@@ -129,6 +129,7 @@
                      <td>{{show.cost}}</td>
                      <td>
                         <form action="{{ url_for('buy_tickets', id=show.id, venue_id=show.venue, movie_name=show.movie_name, cost = show.cost, timeslot = show.timeslot) }}" method="POST">
+                           {{ csrf_token() }}
                            <input type="hidden" name="user_id" value="{{ user.id }}">
                            <input type="hidden" name="id" value="{{show.id}}">
                            <input type="hidden" name="seat_avb" value="{{show.seat_avb}}">
