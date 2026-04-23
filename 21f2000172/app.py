@@ -3,6 +3,7 @@ from flask import Flask, redirect, render_template, url_for, flash
 from flask import request
 from flask import render_template
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 
 app = Flask(__name__)
@@ -315,4 +316,4 @@ def buy_tickets():
         return redirect(url_for('user'))
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=os.environ.get('FLASK_DEBUG') == '1')
